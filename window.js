@@ -3,7 +3,9 @@ $(() => {
   const maxCharPerPost = 280; 
 
   $('#text-input-box').bind('input propertychange', function() {
+    // this is the text entered by the user
     const text = this.value;
+    // will store text-chunks of correct size
     var posts = new Array();
     $("#posts-list").empty();
 
@@ -18,6 +20,8 @@ $(() => {
         .append( 
           $('<li>', {text: element})
             .click(function(){
+              // check the output text with developer tools to assert
+              // everything running correctly
               console.log($(this).text());
               window.open(twitterIntentBaseURL + $(this).text());
             })
