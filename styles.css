@@ -2,8 +2,9 @@ html, body, .container-fluid {
   background-color: #D6D8DC;
 }
 
-.text-input {
-  font-size: 16px;
+#text-input-box {
+  height: 100vh;
+  resize: none;
 }
 
 .hash-output {

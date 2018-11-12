@@ -1,21 +1,30 @@
 $(() => {
-  const crypto = require('crypto')
+  const twitterIntentBaseURL = "https://twitter.com/intent/tweet?text=";
+  const maxCharPerPost = 280; 
 
-  $('#text-input').bind('input propertychange', function() {
-    const text = this.value
+  $('#text-input-box').bind('input propertychange', function() {
+    const text = this.value;
+    var posts = new Array();
+    $("#posts-list").empty();
 
-    const md5 = crypto.createHash('md5').update(text, 'utf8').digest('hex')
-    $('#md5-output').text(md5)
+    // split the long input text into multiple smaller chunks of tweet size
+    for(let i = 0; i < text.length; i += maxCharPerPost) {
+      posts.push(text.slice(i, i + maxCharPerPost));
+    }
 
-    const sha1 = crypto.createHash('sha1').update(text, 'utf8').digest('hex')
-    $('#sha1-output').text(sha1)
+    // write those chunks down in a list and add the handle for tweeting
+    posts.forEach(element => {
+      $("#posts-list")
+        .append( 
+          $('<li>', {text: element})
+            .click(function(){
+              console.log($(this).text());
+              window.open(twitterIntentBaseURL + $(this).text());
+            })
+        ) 
+      });
 
-    const sha256 = crypto.createHash('sha256').update(text, 'utf8').digest('hex')
-    $('#sha256-output').text(sha256)
-
-    const sha512 = crypto.createHash('sha512').update(text, 'utf8').digest('hex')
-    $('#sha512-output').text(sha512)
   })
 
-  $('#text-input').focus() // focus input box
+  $('#text-input-box').focus() // focus input box
 })
