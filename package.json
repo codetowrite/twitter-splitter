@@ -1,13 +1,13 @@
 {
-  "name": "hash",
+  "name": "twitter-splitter",
   "version": "1.0.0",
-  "description": "See the various hash values of entered text",
-  "repository": "electron/simple-samples",
+  "description": "Split long texts into several tweets and share them on Twitter",
+  "repository": "codetowrite/twitter-splitter",
   "main": "app.js",
   "scripts": {
     "start": "electron app.js"
   },
-  "license": "ISC",
+  "license": "MIT",
   "devDependencies": {
     "electron": "^3.0.2"
   }
