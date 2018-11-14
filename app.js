@@ -37,7 +37,7 @@ app.once('ready', () => {
   ]);
   tray.setToolTip('Twitter Splitter - ctw');
   tray.setContextMenu(contextMenu);
-  
+ 
 
   // Load a URL in the window to the local index.html path
   window.loadURL(url.format({
