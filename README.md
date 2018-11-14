@@ -4,7 +4,7 @@ Split long texts into several tweets and share them on Twitter
 Project status: Work in progress
 License: MIT 
 
-# Build instructions (linux)
+# Build Instructions (Linux)
 requires node and npm to be installed and configured correctly. 
 
 git clone https://github.com/codetowrite/twitter-splitter.git
