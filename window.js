@@ -33,14 +33,16 @@ $(() => {
     posts.forEach(element => {
       $("#posts-list")
         .append( 
-          $('<li>', {text: element})
+        /*  $('<li>', {text: element})
             .click(function(){
               // check the output text with developer tools to assert
               // everything running correctly
               console.log($(this).text());
               window.open(twitterIntentBaseURL + $(this).text());
             })
-        ) 
+        ) */
+        $('<li>').loadTemplate("template/tweet.html", 
+          {tweetMessage: element}) )
       });
 
   })
