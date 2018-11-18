@@ -31,8 +31,20 @@ $(() => {
 
     // write those chunks down in a list and add the handle for tweeting
     posts.forEach(element => {
+      var curItem = $('<li>').loadTemplate("template/tweet.html", 
+      {tweetMessage: element});
+      
+      $(curItem).find("#tweetButton").click(function(){
+        console.log(element);
+      })
+
+      $(curItem).find("#copyButton").click(function(){
+        console.log(element);
+      })
+      
+      
       $("#posts-list")
-        .append( 
+        .append( curItem );
         /*  $('<li>', {text: element})
             .click(function(){
               // check the output text with developer tools to assert
@@ -41,15 +53,14 @@ $(() => {
               window.open(twitterIntentBaseURL + $(this).text());
             })
         ) */
-        $('<li>').loadTemplate("template/tweet.html", 
-          {tweetMessage: element}) )
-      });
+        
+    });
 
+    $('#text-input-box').focus(); // focus input box
   })
 
-  $('#text-input-box').focus() // focus input box
-})
+  function splitTextAtPunctuationChars(text){
+    return (""+text).split(/(\.|\?|\!)/g);
+  }
 
-function splitTextAtPunctuationChars(text){
-   return (""+text).split(/(\.|\?|\!)/g);
-}
+})
