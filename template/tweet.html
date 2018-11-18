@@ -1,12 +1,17 @@
-<div class="container">
-    <div class="row">
-        <div class="col-xs-3">
-            <button id="tweetButton">Tweet</button>
-            <button id="copyButton">Copy</button>
-        </div>
-
-        <div class="col-xs-9">
-            <p data-content="tweetMessage"></p>
-        </div>
+<div class="container-fluid tweet-item-container">
+    
+    <div class="col-xs-3">  
+       <span class="tweet-icon-container" title="Tweet this!">
+            <i id="tweetButton" class="fab fa-twitter"></i>
+       </span> 
+        <br>
+        <span class="tweet-icon-container" title="Copy to clipboard">
+            <i id="copyButton" class="fas fa-paste"></i>
+        </span>
     </div>
+
+    <div class="col-xs-9">
+        <p data-content="tweetMessage"></p>
+    </div>
+
 </div>

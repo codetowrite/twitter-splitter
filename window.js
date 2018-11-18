@@ -1,4 +1,7 @@
 $(() => {
+
+  const {clipboard, dialog} = require('electron');
+
   const twitterIntentBaseURL = "https://twitter.com/intent/tweet?text=";
   const maxCharPerPost = 280; 
   
@@ -34,25 +37,20 @@ $(() => {
       var curItem = $('<li>').loadTemplate("template/tweet.html", 
       {tweetMessage: element});
       
-      $(curItem).find("#tweetButton").click(function(){
-        console.log(element);
-      })
+      $(curItem).find("#tweetButton")
+        .click(function(){
+          window.open(twitterIntentBaseURL + element);
+        })
+        
 
       $(curItem).find("#copyButton").click(function(){
-        console.log(element);
+        clipboard.writeText(element);
+        let not = new Notification("success");
+        
       })
       
       
-      $("#posts-list")
-        .append( curItem );
-        /*  $('<li>', {text: element})
-            .click(function(){
-              // check the output text with developer tools to assert
-              // everything running correctly
-              console.log($(this).text());
-              window.open(twitterIntentBaseURL + $(this).text());
-            })
-        ) */
+      $("#posts-list").append( curItem );
         
     });
 

@@ -2,8 +2,35 @@ html, body, .container-fluid {
   background-color: #D6D8DC;
 }
 
+.flex-col {
+  display: flex;
+  flex-direction: column;
+}
+
 #text-input-box {
   height: 100vh;
   resize: none;
+}
+
+#posts-list {
+  width: 100%;
+  padding: 0px;
+  margin: 0px;
+
+}
+
+.tweet-icon-container {
+  font-size: 28px;
+}
+
+.tweet-list-container {
+  list-style: none;
+}
+
+.tweet-item-container {
+  background-color: white;
+  border-radius: 20px;
+  padding: 10px;
+  margin: 15px;
 }
 
